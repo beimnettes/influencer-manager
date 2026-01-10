@@ -1,0 +1,194 @@
+.content-pipeline-container {
+    overflow: visible !important;
+}
+
+.pipeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.pipeline-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pipeline-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(79, 254, 172, 0.1);
+    color: var(--success);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(79, 254, 172, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+    }
+}
+
+.pipeline-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 var(--spacing-md);
+}
+
+.pipeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-decoration: none;
+    position: relative;
+    transition: var(--transition-bounce);
+    z-index: 2;
+    min-width: 80px;
+}
+
+.step-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: var(--transition-bounce);
+    box-shadow: var(--shadow-md);
+}
+
+.step-icon {
+    font-size: 1.75rem;
+    transform: scale(1);
+    transition: var(--transition);
+}
+
+.step-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--step-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--bg-card);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.step-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.step-preview {
+    position: absolute;
+    bottom: -40px;
+    white-space: nowrap;
+    background: var(--bg-elevated);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+    pointer-events: none;
+}
+
+/* Hover Effects */
+.pipeline-step:hover .step-icon-wrapper {
+    transform: translateY(-8px);
+    border-color: var(--step-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-interactive));
+}
+
+.pipeline-step:hover .step-icon {
+    transform: scale(1.1);
+}
+
+.pipeline-step:hover .step-label {
+    color: var(--text-primary);
+}
+
+.pipeline-step:hover .step-preview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Connectors */
+.pipeline-connector {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    position: relative;
+    margin: 0 -10px;
+    /* Overlap slightly */
+    top: -16px;
+    /* Align with center of icons */
+    z-index: 1;
+    overflow: hidden;
+}
+
+.connector-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    transform: translateX(-100%);
+    animation: flowLine 3s linear infinite;
+}
+
+@keyframes flowLine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pipeline-flow {
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: var(--spacing-xl);
+        padding-bottom: var(--spacing-md);
+    }
+
+    .pipeline-connector {
+        min-width: 40px;
+    }
+}

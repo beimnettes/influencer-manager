@@ -1,0 +1,324 @@
+/* Profile Page Polish */
+.profile-page {
+    padding-bottom: var(--spacing-3xl);
+}
+
+.profile-header {
+    padding: 0;
+    overflow: visible;
+    /* Fixed: Allow avatar to pop out */
+    margin-bottom: var(--spacing-2xl);
+    /* Increased spacing */
+    border: none;
+}
+
+.profile-cover {
+    height: 240px;
+    /* Taller cover */
+    background: var(--gradient-sunset);
+    width: 100%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.profile-info-container {
+    padding: var(--spacing-xl);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacing-xl);
+    margin-top: -80px;
+    /* Deeper overlap */
+}
+
+.profile-avatar {
+    width: 140px;
+    /* Larger avatar */
+    height: 140px;
+    border-radius: var(--radius-xl);
+    background: var(--gradient-creative);
+    border: 6px solid var(--bg-card);
+    /* Thicker border matches background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-xl);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details {
+    flex: 1;
+    padding-bottom: var(--spacing-xs);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.profile-bio {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+.profile-social-icons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.social-icon-link {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.social-icon-link:hover {
+    background: var(--bg-interactive);
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+.profile-stats-row {
+    display: flex;
+    gap: var(--spacing-xl);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-light);
+    /* Subtle separator */
+}
+
+.profile-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center align items */
+    min-width: 80px;
+    /* Ensure uniform width */
+}
+
+.stat-num {
+    font-weight: 800;
+    font-size: 1.4rem;
+    /* Slightly larger */
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.profile-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    align-items: flex-end;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.achievements-list,
+.accounts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.achievement-item,
+.account-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.achievement-item:hover,
+.account-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.achievement-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border-radius: 50%;
+}
+
+.achievement-text h4 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+.achievement-text p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.account-item {
+    justify-content: space-between;
+}
+
+.account-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.platform-icon {
+    font-size: 1.25rem;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .profile-info-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: -60px;
+    }
+
+    .profile-details {
+        align-items: center;
+    }
+
+    .profile-avatar {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .profile-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile-stats-row {
+        justify-content: center;
+        margin-bottom: var(--spacing-md);
+        width: 100%;
+        gap: var(--spacing-lg);
+    }
+
+    .profile-social-icons {
+        justify-content: center;
+    }
+}
+
+/* Platform Icon Colors */
+.instagram-icon {
+    color: #E1306C;
+}
+
+.tiktok-icon {
+    color: #00F2EA;
+}
+
+.youtube-icon {
+    color: #FF0000;
+}
+
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.linkedin-icon {
+    color: #0077B5;
+}
+
+.snapchat-icon {
+    color: #FFFC00;
+}
+
+/* Empty State Styles for New Users */
+.empty-state {
+    font-style: italic;
+}
+
+.empty-hint {
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+.empty-state-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--border);
+}
+
+.empty-state-box .empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.7;
+}
+
+.empty-state-box .empty-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.empty-state-box .empty-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    max-width: 200px;
+}

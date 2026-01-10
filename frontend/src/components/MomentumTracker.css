@@ -1,0 +1,96 @@
+.momentum-tracker {
+    background: var(--bg-elevated);
+    margin-bottom: var(--spacing-xl);
+}
+
+.momentum-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.momentum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.momentum-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--bg-interactive);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+}
+
+.momentum-item:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 107, 137, 0.377);
+}
+
+.momentum-label {
+    text-align: center;
+}
+
+.momentum-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.momentum-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.momentum-achievement {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: rgba(255, 215, 61, 0.1);
+    border: 1px solid var(--creator-gold);
+    border-radius: var(--radius-md);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.achievement-emoji {
+    font-size: 1.5rem;
+}
+
+.achievement-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--creator-gold);
+}
+
+@media (max-width: 768px) {
+    .momentum-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,77 @@
+.hashtag-manager {
+    height: 100%;
+}
+
+.hashtag-groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.hashtag-group {
+    background: var(--bg-interactive);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.hashtag-group:hover {
+    background: var(--bg-card-hover);
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.group-title {
+    font-weight: 700;
+    font-size: 0.9375rem;
+}
+
+.copy-tags-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.copy-tags-btn:hover {
+    opacity: 1;
+}
+
+.group-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.tag-chip {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.add-group-btn {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background: transparent;
+    border: 1px dashed var(--border);
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.875rem;
+}
+
+.add-group-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}

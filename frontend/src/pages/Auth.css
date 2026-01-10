@@ -1,0 +1,311 @@
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--bg-main) 0%, #1a1f3a 100%);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-xl);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.auth-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.auth-header p {
+    color: var(--text-muted);
+}
+
+/* Section Labels */
+.section-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+/* Social Login Buttons */
+.social-login-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.social-btn {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.social-btn:hover {
+    border-color: var(--primary);
+    background: var(--bg-interactive);
+}
+
+.social-btn.google .social-icon {
+    background: linear-gradient(135deg, #4285f4, #ea4335, #fbbc05, #34a853);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.social-btn.okta .social-icon {
+    color: #007dc1;
+    font-size: 1.125rem;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: var(--spacing-lg) 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.divider span {
+    padding: 0 var(--spacing-md);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Email Login Section */
+.email-login-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.auth-form {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--bg-elevated);
+}
+
+/* Password Input with Show/Hide */
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-wrapper .form-input {
+    padding-right: 80px;
+}
+
+.show-password-btn {
+    position: absolute;
+    right: var(--spacing-sm);
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.show-password-btn:hover {
+    color: var(--primary);
+    background: var(--bg-interactive);
+}
+
+/* Forgot Password Link */
+.forgot-password-link {
+    text-align: left;
+    margin-bottom: var(--spacing-lg);
+}
+
+.forgot-password-link .auth-link {
+    font-size: 0.875rem;
+}
+
+/* Buttons */
+.btn-full {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+}
+
+/* Face ID Section */
+.face-id-section {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border);
+}
+
+.face-id-btn {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(168, 85, 247, 0.15));
+    border: 1px solid rgba(79, 172, 254, 0.3);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.face-id-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.25), rgba(168, 85, 247, 0.25));
+    border-color: var(--accent);
+}
+
+.face-id-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.face-icon {
+    font-size: 1.25rem;
+}
+
+/* Footer */
+.auth-footer {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border);
+}
+
+.auth-link {
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+.auth-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* Alert */
+.alert {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.875rem;
+}
+
+.alert-error {
+    background: rgba(248, 113, 113, 0.15);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: #f87171;
+}
+
+/* Info Box for Demo Code */
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: rgba(79, 172, 254, 0.15);
+    border: 1px solid rgba(79, 172, 254, 0.3);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.info-icon {
+    font-size: 1.25rem;
+}
+
+/* Code Input */
+.code-input {
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-family: 'Space Grotesk', monospace;
+}
+
+/* Resend/Back Button */
+.resend-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: var(--spacing-md);
+    width: 100%;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.resend-btn:hover {
+    color: var(--primary);
+}
+
+/* Success State */
+.success-header {
+    padding: var(--spacing-xl) 0;
+}
+
+.success-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+}

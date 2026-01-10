@@ -1,0 +1,132 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Platform {
+  INSTAGRAM
+  TIKTOK
+  YOUTUBE
+  TWITTER
+  LINKEDIN
+}
+
+enum Tone {
+  PROFESSIONAL
+  CASUAL
+  FUNNY
+  INSPIRATIONAL
+  EDUCATIONAL
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum PostStatus {
+  DRAFT
+  SCHEDULED
+  POSTED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  contentIdeas ContentIdea[]
+  captions     Caption[]
+  posts        Post[]
+  analytics    Analytics[]
+
+  @@map("users")
+}
+
+model ContentIdea {
+  id          String   @id @default(uuid())
+  userId      String
+  title       String
+  description String?  @db.Text
+  platform    Platform
+  tags        String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  posts Post[]
+
+  @@index([userId])
+  @@map("content_ideas")
+}
+
+model Caption {
+  id        String   @id @default(uuid())
+  userId    String
+  content   String   @db.Text
+  platform  Platform
+  tone      Tone
+  hashtags  String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  posts Post[]
+
+  @@index([userId])
+  @@map("captions")
+}
+
+model Post {
+  id            String      @id @default(uuid())
+  userId        String
+  contentIdeaId String?
+  captionId     String?
+  title         String
+  description   String?     @db.Text
+  platform      Platform
+  status        PostStatus  @default(DRAFT)
+  scheduledFor  DateTime?
+  postedAt      DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  contentIdea ContentIdea? @relation(fields: [contentIdeaId], references: [id], onDelete: SetNull)
+  caption     Caption?     @relation(fields: [captionId], references: [id], onDelete: SetNull)
+  analytics   Analytics[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([scheduledFor])
+  @@map("posts")
+}
+
+model Analytics {
+  id         String   @id @default(uuid())
+  postId     String
+  userId     String
+  likes      Int      @default(0)
+  comments   Int      @default(0)
+  views      Int      @default(0)
+  shares     Int      @default(0)
+  notes      String?  @db.Text
+  recordedAt DateTime @default(now())
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
+  @@index([userId])
+  @@map("analytics")
+}

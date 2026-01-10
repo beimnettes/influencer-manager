@@ -1,0 +1,235 @@
+.settings-page {
+    padding-bottom: var(--spacing-3xl);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.settings-card {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item.clickable {
+    cursor: pointer;
+}
+
+.setting-item.clickable:hover {
+    background: var(--bg-secondary);
+}
+
+.setting-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.setting-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.setting-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.setting-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.chevron-icon {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Theme Switch */
+.theme-switch {
+    width: 50px;
+    height: 28px;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    padding: 2px;
+    display: flex;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.theme-switch.active {
+    background: #2d1537;
+    /* Dark purple */
+    border-color: #7c3085;
+}
+
+.switch-knob {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.theme-switch.active .switch-knob {
+    transform: translateX(22px);
+    background: #1a1a2e;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    width: 44px;
+    height: 24px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.toggle-switch.active {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-switch.active::after {
+    transform: translateX(20px);
+}
+
+/* Footer */
+.settings-footer {
+    margin-top: var(--spacing-3xl);
+    text-align: center;
+    color: var(--text-muted);
+    padding-bottom: var(--spacing-xl);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+}
+
+.footer-links .link {
+    cursor: pointer;
+}
+
+.footer-links .link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.app-version {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* Language Dropdown */
+.language-selector {
+    position: relative;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: var(--spacing-sm);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    animation: slideDown 0.2s ease-out;
+}
+
+.language-option {
+    padding: var(--spacing-md) var(--spacing-lg);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+}
+
+.language-option:hover {
+    background: var(--bg-interactive);
+}
+
+.language-option.selected {
+    background: rgba(255, 107, 157, 0.15);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.check-icon {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
