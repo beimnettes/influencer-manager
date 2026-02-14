@@ -4,7 +4,6 @@ import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import MainLayout from './components/MainLayout';
-// Navbar removed in favor of Sidebar in MainLayout
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
@@ -19,10 +18,16 @@ import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 
+//import AuthDebug from './components/authDebug';
+
 function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
+
+        {/* ✅ Auth state debug UI */}
+        {/* <AuthDebug /> */}
+
         <BrowserRouter>
           <Routes>
             {/* Public Routes */}
@@ -30,7 +35,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
 
-            {/* Protected Routes wrapped in MainLayout */}
+            {/* Protected Routes */}
             <Route
               path="/"
               element={
@@ -54,11 +59,11 @@ function App() {
             />
 
             <Route
-              path="/captions"
+              path="/ideas/new"
               element={
                 <ProtectedRoute>
                   <MainLayout>
-                    <Captions />
+                    <NewIdea />
                   </MainLayout>
                 </ProtectedRoute>
               }
@@ -70,6 +75,17 @@ function App() {
                 <ProtectedRoute>
                   <MainLayout>
                     <Posts />
+                  </MainLayout>
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/posts/new"
+              element={
+                <ProtectedRoute>
+                  <MainLayout>
+                    <NewPost />
                   </MainLayout>
                 </ProtectedRoute>
               }
@@ -114,54 +130,6 @@ function App() {
                 <ProtectedRoute>
                   <MainLayout>
                     <EditProfile />
-                  </MainLayout>
-                </ProtectedRoute>
-              }
-            />
-
-            {/* Sub-pages wrapped in MainLayout */}
-            <Route
-              path="/ideas/new"
-              element={
-                <ProtectedRoute>
-                  <MainLayout>
-                    <NewIdea />
-                  </MainLayout>
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/captions/new"
-              element={
-                <ProtectedRoute>
-                  <MainLayout>
-                    <Captions />
-                  </MainLayout>
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/posts/new"
-              element={
-                <ProtectedRoute>
-                  <MainLayout>
-                    <NewPost />
-                  </MainLayout>
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/posts/:id"
-              element={
-                <ProtectedRoute>
-                  <MainLayout>
-                    <div className="container page">
-                      <h1>📝 Post Details</h1>
-                      <p>Post details page coming soon...</p>
-                    </div>
                   </MainLayout>
                 </ProtectedRoute>
               }

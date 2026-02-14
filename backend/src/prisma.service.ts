@@ -6,7 +6,7 @@ import { Pool } from 'pg';
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
   constructor() {
-    const connectionString = 'postgresql://postgres:Feleke1234@localhost:5432/influencer_manager';
+    const connectionString = 'postgresql://postgres:postgres@localhost:5432/influencer_manager';
     const pool = new Pool({ connectionString });
     const adapter = new PrismaPg(pool);
 
