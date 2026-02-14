@@ -1,3 +1,4 @@
+import { HealthModule } from './health/health.module';
 import { Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_PIPE, APP_GUARD } from '@nestjs/core';
@@ -26,6 +27,7 @@ import { PrismaService } from './prisma.service';
     PostsModule,
     AnalyticsModule,
     DashboardModule,
+    HealthModule,
   ],
   providers: [
     PrismaService,
